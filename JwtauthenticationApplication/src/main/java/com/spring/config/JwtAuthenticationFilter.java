@@ -28,15 +28,23 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	@Autowired
 	private JwtUtil jwtUtil;
 	
+	
+	/*
+	 * @Override protected boolean shouldNotFilter(HttpServletRequest request)
+	 * throws ServletException { String path = request.getRequestURI(); return
+	 * path.contains("/token"); }
+	 */
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		
-		String requestTokenHeader=request.getHeader("Authorization");
+ 		String requestTokenHeader=request.getHeader("Authorization");
 		String username=null;
 		String jwtToken=null;
 		//null and format
+		String path = request.getRequestURI();
 		if(requestTokenHeader!=null && requestTokenHeader.startsWith("Bearer")){
+			
 			jwtToken=requestTokenHeader.substring(7);
 			
 			try {
