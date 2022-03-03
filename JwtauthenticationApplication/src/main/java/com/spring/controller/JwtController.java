@@ -44,7 +44,6 @@ public class JwtController {
 	System.out.println("JWT"+token );
 	
 	//{""}
-	System.out.println("test");
 	return ResponseEntity.ok(new JwtResponse(token));
 	
 }
