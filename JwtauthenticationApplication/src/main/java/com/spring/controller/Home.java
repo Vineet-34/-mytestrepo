@@ -10,8 +10,8 @@ public class Home {
 	//@RequestMapping("/welcome")
 	@GetMapping("/welcome")
 	public String welcome() {
-		String text = "This is private page";
-		text += "this page is not allowed to authenticated users";
+		String text = "Welcome to JWT JAVA WEB TOKENS";
+		
 
 		return text;
 	}
@@ -19,7 +19,7 @@ public class Home {
 	@GetMapping("/getusers")
 	public String getUser() {
 	
-		return "{\"name\":\"Durgesh\"}";
+		return "{\"name\":\"Vineet\"}";
 }
 }
  
