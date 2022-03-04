@@ -29,11 +29,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	private JwtUtil jwtUtil;
 	
 	
-	/*
-	 * @Override protected boolean shouldNotFilter(HttpServletRequest request)
-	 * throws ServletException { String path = request.getRequestURI(); return
-	 * path.contains("/token"); }
-	 */
+	
+	  @Override protected boolean shouldNotFilter(HttpServletRequest request)
+	  throws ServletException { String path = request.getRequestURI(); return
+	  path.contains("/token"); }
+	 
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
@@ -66,7 +67,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 				
 			}else {
-				System.out.println("Tooken is not valid");
+				System.out.println("Token is not valid");
 			}
 			
 			filterChain.doFilter(request, response);

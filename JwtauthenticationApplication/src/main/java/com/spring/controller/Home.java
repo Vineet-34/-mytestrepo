@@ -10,7 +10,7 @@ public class Home {
 	//@RequestMapping("/welcome")
 	@GetMapping("/welcome")
 	public String welcome() {
-		String text = "Welcome to JWT JAVA WEB TOKENS";
+		String text = "Welcome to JWT JAVA WEB TOKENS..";
 		
 
 		return text;
