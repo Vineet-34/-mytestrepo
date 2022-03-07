@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JwtRequest {
 
-	String username;
+	String userName;
 	String password;
 	
 	

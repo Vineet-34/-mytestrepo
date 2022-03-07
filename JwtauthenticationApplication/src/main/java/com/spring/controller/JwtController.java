@@ -32,18 +32,18 @@ public class JwtController {
 		
 		System.out.println(jwtRequest);
 		try {
-			this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUsername(), jwtRequest.getPassword()));
+			this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(jwtRequest.getUserName(),jwtRequest.getPassword()));
 			
 		}catch (UsernameNotFoundException e) {
 		e.printStackTrace();
 		throw new Exception("Bad Credentaials");
 		}
 		
-		UserDetails userDetails = this.customUserDetailService.loadUserByUsername(jwtRequest.getUsername());
+	UserDetails userDetails	=this.customUserDetailService.loadUserByUsername(jwtRequest.getUserName());
 	String token=	this.jwtUtil.generateToken(userDetails);
-	System.out.println("JWT"+token );
+	System.out.println("JWT :  " +token );
 	
-	//{""}
+	//{"token:value"}
 	return ResponseEntity.ok(new JwtResponse(token));
 	
 }
